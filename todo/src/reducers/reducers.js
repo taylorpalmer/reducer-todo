@@ -1,12 +1,11 @@
 const initialState = {
   todos: [
-    {
-      item: "Learn about reducers",
-      completed: false,
-      id: 1,
-    },
-  ],
-};
+  {
+    item: "Learn about reducers",
+    completed: false,
+    id: 1,
+  },
+];}
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -28,7 +27,7 @@ const reducer = (state, action) => {
         ...state,
         todos: state.todos.map((item) => {
           if (item.id === action.payload) {
-            return { ...item, done: !item.completed };
+            return { ...item, completed: !item.completed };
           } else {
             return item;
           }

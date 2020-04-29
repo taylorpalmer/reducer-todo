@@ -1,14 +1,10 @@
 import React, { useState, useReducer } from "react";
 import { initialState, reducer } from "./reducers/reducers";
 
-const TodoList = () => {
-  const [newTodoText, setNewTodoText] = useState("");
-  const [state, dispatch] = useReducer(reducer, initialState);
+const TodoList = (props) => {
+  
 
-  const handleChanges = (e) => {
-    this.setState({ [e.target.name]: e.target.value });
-    console.log(this.state.task);
-  };
+  console.log(state);
 
   return (
     <div className="wrapper">
@@ -21,7 +17,6 @@ const TodoList = () => {
           value={newTodoText}
           onChange={handleChanges}
         />
-        >
         <button
           onClick={() => {
             dispatch({ type: "ADD_TODO", payload: newTodoText });
@@ -33,7 +28,13 @@ const TodoList = () => {
       </div>
       <div className="list">
         <ul>
-          <li>{state.todos}</li>
+          {props.todos.map((item) => (
+            <li
+            className={`todos${item.completed ? " completed" : ""}`}
+            key={item.id}
+            onClick={() => props.toggle}
+          ))}
+          <li>state</li>
         </ul>
         <button onClick={() => dispatch({ type: "CLEAR_COMPLETED" })}>
           Clear Completed
