@@ -2,7 +2,12 @@ import React, { useState, useReducer } from "react";
 import { initialState, reducer } from "./reducers/reducers";
 
 const TodoList = (props) => {
-  
+  const [newTodoText, setNewTodoText] = useState("");
+  const [state] = useReducer(reducer, initialState);
+
+  const handleChanges = (e) => {
+    setNewTodoText(e.target.value);
+  };
 
   console.log(state);
 
