@@ -8,6 +8,7 @@ const initialState = {
 ];}
 
 const reducer = (state, action) => {
+  
   switch (action.type) {
     case "ADD_TODO":
       return {
@@ -27,7 +28,8 @@ const reducer = (state, action) => {
         ...state,
         todos: state.todos.map((item) => {
           if (item.id === action.payload) {
-            return { ...item, completed: !item.completed };
+            item.completed = !item.completed 
+            return item;
           } else {
             return item;
           }
