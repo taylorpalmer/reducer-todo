@@ -1,12 +1,16 @@
 import React from "react";
+import "../App.css";
 
 const Todo = (props) => {
   return (
-    <div
-      style={props.todo.completed ? { textDecoration: "line-through" } : null}
-      onClick={() => props.toggleComplete(props.todo.id)}
-    >
-      <p>{props.todo.item}</p>
+    <div className="wrapper">
+      <h1>Todo</h1>
+      <div
+        className={`todo ${props.todo.completed ? "completed" : ""}`}
+        onClick={() => props.toggleComplete(props.todo.id)}
+      >
+        <p>{props.todo.item}</p>
+      </div>
     </div>
   );
 };
