@@ -13,6 +13,7 @@ const TodoForm = (props) => {
       type: "ADD_TODO",
       payload: newTask,
     });
+    setNewTask("");
   };
 
   const clearHandler = (event) => {
